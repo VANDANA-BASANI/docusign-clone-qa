@@ -8,10 +8,12 @@
 
 ## 📌 Deliverables Overview
 
-This repository contains the full QA audit deliverables for the DocuSign clone environment:
+This repository contains the complete technical QA audit deliverables for the DocuSign clone environment:
 
 1. **`bug_tracker_Vandana_Basani.xlsx`**: Detailed bug tracker spreadsheet with 15 verified, triaged bugs across P1–P4 severities including reproduction steps, computed CSS measurements, and root-cause hypotheses.
 2. **`summary_note.pdf`**: Half-page executive summary covering overall product impression, prioritized top 5 fixes for RL task grader reliability, scope boundaries, and assumptions.
+3. **`DEVELOPER_FIX_SUGGESTIONS.md`**: Technical root-cause suggestions and TypeScript / React / Tailwind code patches for engineering team review.
+4. **`qa_automation_scripts/`**: Automated diagnostic Python scripts used to probe backend APIs, inspect DOM attributes, and programmatically verify bugs.
 
 ---
 
@@ -34,6 +36,16 @@ This repository contains the full QA audit deliverables for the DocuSign clone e
 | **BUG-013** | Field Placement: 'Delete' / 'Backspace' keyboard shortcut fails to remove selected tag | **P3** | Functional / UX Interaction | Prepare → Canvas |
 | **BUG-014** | DevTools Console: Uncaught TypeError logged during document thumbnail generation | **P2** | Functional / Runtime Error | Prepare → Add Documents |
 | **BUG-015** | Auth / Session: Hard refresh on /send/documents prompts repeated basic auth dialog | **P2** | Functional / Session | Global / Auth |
+
+---
+
+## ⚡ QA Automation & Diagnostic Suite
+
+Located in `qa_automation_scripts/`:
+- **`test_envelope_creation_flow.py`**: Automated probe for `/api/v1/envelopes` to verify zero-recipient submission bug (BUG-001).
+- **`audit_seeded_envelopes_api.py`**: Automated audit script checking timestamp consistency across seeded records (BUG-003).
+- **`inspect_ui_elements.py`**: Automated DOM crawler checking link targets and anchor attributes (BUG-012).
+- **`generate_sample_contract.py`**: Lightweight PDF generation script to produce standard test assets.
 
 ---
 
